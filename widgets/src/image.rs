@@ -442,16 +442,24 @@ impl Image {
             ImageFit::Smallest => {
                 let walk_height = rect.size.x / aspect;
                 if walk_height > rect.size.y {
+                    // Image is taller than container ratio: limit by container height
                     walk.width = Size::Fixed(rect.size.y * aspect);
+                    walk.height = Size::Fixed(rect.size.y);
                 } else {
+                    // Image is wider than container ratio: limit by container width
+                    walk.width = Size::Fixed(rect.size.x);
                     walk.height = Size::Fixed(walk_height);
                 }
             }
             ImageFit::Biggest => {
                 let walk_height = rect.size.x / aspect;
                 if walk_height < rect.size.y {
+                    // Image would leave gaps on top/bottom: scale up to match height
                     walk.width = Size::Fixed(rect.size.y * aspect);
+                    walk.height = Size::Fixed(rect.size.y);
                 } else {
+                    // Image would leave gaps on sides: scale up to match width
+                    walk.width = Size::Fixed(rect.size.x);
                     walk.height = Size::Fixed(walk_height);
                 }
             }
