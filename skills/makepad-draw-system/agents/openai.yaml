@@ -1,0 +1,4 @@
+interface:
+  display_name: "Makepad Draw System"
+  short_description: "Explain or implement Makepad draw flow in this repo"
+  default_prompt: "Use $makepad-draw-system for draw_walk, turtle, View-backed widgets, passes, render-to-texture, and other drawing-related work in the current Makepad repository."

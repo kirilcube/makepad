@@ -1,0 +1,4 @@
+interface:
+  display_name: "Makepad Shader DSL"
+  short_description: "Write Makepad shaders with the current DSL"
+  default_prompt: "Use $makepad-shader-dsl to implement or modify a Makepad shader in the current repo."
